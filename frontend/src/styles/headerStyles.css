@@ -1,0 +1,155 @@
+header{
+    background-image: url("../images/capadocia.jpg");
+    height: 100vh;
+    background-size: cover;
+    background-position: 20% 20%;
+}
+.fondo{
+  height: 100vh;
+}
+@media (min-width: 577px) {
+    nav {
+      height: 12vh;
+    }
+  }
+
+
+#barra{
+  background: rgba(66, 166, 248, 0.363)!important;
+}
+
+nav{
+  color: rgb(14, 14, 14)!important;
+  font-size:1.5rem;
+  font-weight: bold;
+}
+nav p{
+  font-size:1.3rem;
+  font-weight: bold;
+  margin-left: -1rem;
+}
+#logo{
+  margin-left: -1rem;
+}
+#find h1{
+  font-size: 3rem!important;
+  margin:0;
+  text-align: center;
+  margin-top: 1rem;
+}
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) { 
+  nav{
+    font-size: 1.3rem;
+    font-weight: 400;
+  }
+  nav p{
+    font-size:1.5rem;
+    font-weight: bold;
+  }
+  #find h1{
+    font-size: 3rem!important;
+    margin:0;
+    text-align: center;
+    margin-top: 2rem;
+  
+  }
+}
+@media (max-width: 768px){
+  .card-deck {
+      display: -ms-flexbox;
+      display: block;
+      -ms-flex-flow: row wrap;
+      flex-flow: row wrap;
+      margin-right: -15px;
+      margin-left: -15px;
+      
+  }}
+  @media (max-width: 768px){
+    .card {
+      
+        margin-bottom: 15px!important;
+    }}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+  nav{
+    font-size: 1.4rem;
+  }
+  nav p{
+    font-size:1.8rem;
+    font-weight: bold;
+  }
+  #find h1{
+    font-size: 3rem!important;
+    margin:0;
+    text-align: center;
+    margin-bottom: 10rem;
+  
+  }
+ }
+
+ @media (min-width: 818px) { 
+
+  #find h1{
+    font-size: 3.2rem!important;
+    margin:0;
+    text-align: center;
+    margin-bottom: 10rem;
+  
+  }
+ }
+@media (min-width: 850px) { 
+
+  #find h1{
+    font-size: 3.6rem!important;
+    margin:0;
+    text-align: center;
+    margin-bottom: 10rem;
+  
+  }
+ }
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+   nav{
+  font-size: 1.3rem;
+}
+#find h1{
+  font-size: 4.1rem!important;
+  margin:0;
+  text-align: center;
+  margin-bottom: 10rem;
+
+}
+  }
+
+@media (min-width: 1100px) { 
+    #find h1{
+      font-size: 4.3rem!important;
+      margin:0;
+      text-align: center;
+      margin-bottom: 10rem;
+    
+    }
+  }
+
+@media (min-width: 1168px) { 
+    #find h1{
+      font-size: 4.6rem!important;
+      margin:0;
+      text-align: center;
+      margin-bottom: 10rem;
+    
+    }
+  }
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1266px) { 
+  #find h1{
+    font-size: 5rem!important;
+    margin:0;
+    text-align: center;
+    margin-bottom: 10rem;
+  
+  }
+}
