@@ -10,7 +10,7 @@ class Barra extends React.Component {
                 <nav className="navbar navbar-dark navbar-expand-sm" id="barra" >
 
                     <NavLink to="/" className="navbar-brand d-flex " id="logo">
-                        <img src={logo} width="80" height="80" id="icono" className="d-inline-block align-top" alt="" />
+                        <img src={logo} width="80" height="80" id="icono" className="d-inline-block align-top" alt="logo" />
                         <p className="text-dark d-flex mt-auto mb-auto">Mytinerary</p>
                     </NavLink>
                     <div className="d-flex justify-content-end ml-auto">
@@ -23,12 +23,12 @@ class Barra extends React.Component {
                         <div>
                             <div className="dropdown d-flex justify-content-end text-center ">
                                 <button className="btn dropdown-toggle d-block d-sm-none" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <img src={user} width="30" height="30"></img>
+                                    <img src={user} width="30" height="30" alt="user"></img>
                                 </button>
                                 <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                                    <a className="dropdown-item" >Sign in</a>
-                                    <a className="dropdown-item" >Log out</a>
-                                    <a className="dropdown-item" >Something else here</a>
+                                    <NavLink to="/cities" className="dropdown-item" >Sign in</NavLink>
+                                    <NavLink to="/cities" className="dropdown-item" >Log out</NavLink>
+                                    <NavLink to="/cities" className="dropdown-item" >Something else here</NavLink>
                                 </div>
                             </div>
                         </div>
@@ -37,18 +37,18 @@ class Barra extends React.Component {
                         <div className="navbar-nav ">
                             <NavLink to="/" className="nav-item nav-link text-dark active">Home</NavLink>
                             <NavLink to="/cities" className="nav-item nav-link text-dark active">Cities</NavLink>
-                            <a className="nav-item nav-link text-dark" >Vuelos</a>
+                            <NavLink to="/cities" className="nav-item nav-link text-dark" >Vuelos</NavLink>
                         </div>
                     </div>
                     <div>
                         <div className="dropdown">
                             <button className="btn dropdown-toggle d-none d-sm-block" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img src={user} width="30" height="30"></img>
+                                <img src={user} width="30" height="30" alt="user"></img>
                             </button>
                             <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                                <a className="dropdown-item" >Sign in</a>
-                                <a className="dropdown-item" >Log out</a>
-                                <a className="dropdown-item" >Something else here</a>
+                                <NavLink to="/" className="dropdown-item" >Sign in</NavLink>
+                                <NavLink to="/" className="dropdown-item" >Log out</NavLink>
+                                <NavLink to="/" className="dropdown-item" >Something else here</NavLink>
                             </div>
                         </div>
                     </div>

@@ -2,7 +2,7 @@ import React from 'react';
 import Home from "./pages/Home.js"
 import Falla from "./pages/Falla.js"
 import Cities from "./pages/Cities.js"
-import { BrowserRouter, Route, NavLink, Switch, Redirect } from 'react-router-dom'
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 
 
 function App() {
