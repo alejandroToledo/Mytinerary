@@ -1,5 +1,4 @@
 import React from "react"
-import foto from "../images/capadocia.jpg"
 import "../styles/headerStyles.css"
 
 

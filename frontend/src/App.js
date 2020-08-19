@@ -1,21 +1,21 @@
 import React from 'react';
-import Barra from "./components/Barra.js"
-import Jumbo from "./components/Jumbo.js"
-import Cards from "./components/Cards.js"
-import Carousel from "./components/Carousel.js"
+import Home from "./pages/Home.js"
+import Falla from "./pages/Falla.js"
+import Cities from "./pages/Cities.js"
+import { BrowserRouter, Route, NavLink, Switch, Redirect } from 'react-router-dom'
+
 
 function App() {
   return (
     <>
-      <header >
-        <Barra />
-        <Jumbo />
-
-      </header>
-      <main>
-        <Cards />
-        <Carousel />
-      </main>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/cities" component={Cities} />
+          <Route path="/error" component={Falla} />
+          <Redirect to="/error" />
+        </Switch>
+      </BrowserRouter>
     </>
   )
 }

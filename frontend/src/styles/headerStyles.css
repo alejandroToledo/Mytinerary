@@ -7,6 +7,28 @@ header{
 .fondo{
   height: 100vh;
 }
+#lost{
+  height: 100vh;
+  background-image: url("../images/lost.jpg");
+  background-size: cover;
+}
+#barraError{
+  background: rgba(90, 140, 180, 0.336)!important;
+  color: #fdf6f6!important;
+}
+#fondoCities{
+  background-image: url("../images/cities.jpg");
+  
+  height: 50vh;
+}
+#botonCities{
+  text-decoration: none!important;
+  color: #292b2c!important;
+}
+#botonCities:hover{
+  background-color: #ececec!important;
+}
+
 @media (min-width: 577px) {
     nav {
       height: 12vh;
@@ -36,6 +58,9 @@ nav p{
   margin:0;
   text-align: center;
   margin-top: 1rem;
+}
+#lostContent h1{
+font-size: 3em!important;
 }
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) { 
