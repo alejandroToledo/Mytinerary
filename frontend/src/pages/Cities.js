@@ -1,28 +1,30 @@
 import React from 'react';
 import Barra from "../components/Barra.js"
 import Capitales from "../components/Capitales.js"
+import axios from 'axios'
 
 class Cities extends React.Component {
 
     state = {
-        paises: [],
-        paisesFiltrados: []
+        ciudades: [],
+        ciudadesFiltrados: []
     }
     async componentDidMount() {
-        let respuesta = await fetch('https://restcountries.eu/rest/v2/all')
-        let info = await respuesta.json()
+        const response = await axios('http://localhost:4000/api/ciudades')
+        const lista = response.data.cities
+        console.log(lista)
         this.setState({
-            paises: info,
-            paisesFiltrados: info
+            ciudades: lista,
+            ciudadesFiltrados: lista
         })
     }
     capturarPais = e => {
-        const valorIngresado = e.target.value
-        console.log(valorIngresado)
-        const filtrado = this.state.paises.filter(pais => pais.name.indexOf(valorIngresado.charAt(0).toUpperCase() + valorIngresado.slice(1)) == 0)
+        const valorIngresado = e.target.value.trim()
+        const filtrado = this.state.ciudades.filter(pais => pais.name.indexOf((valorIngresado.charAt(0).toUpperCase() +
+            valorIngresado.slice(1).toLowerCase()).trim()) === 0)
 
         this.setState({
-            paisesFiltrados: filtrado
+            ciudadesFiltrados: filtrado
         })
     }
 
@@ -39,9 +41,9 @@ class Cities extends React.Component {
                         <label >Enter the city:</label>
                         <input type="text" placeholder="e.g. France" name="capital" id="capital" onChange={this.capturarPais}></input>
                     </div>
-                    <ul className=" ml-0 mr-d-flex align-items-center ">
-                        {this.state.paisesFiltrados.map(pais => {
-                            return <Capitales pais={pais} />
+                    <ul className=" ml-0 mr-d-flex align-items-center row">
+                        {this.state.ciudadesFiltrados.map(ciudad => {
+                            return <Capitales ciudad={ciudad} />
                         })}
                     </ul>
                 </section>

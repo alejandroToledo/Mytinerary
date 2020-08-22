@@ -28,21 +28,21 @@ class Cards extends React.Component {
                 <section className="container mt-5 mb-5">
                     <div className="card-deck">
                         <div className="card">
-                            <img className="card-img-top img-fluid" src={travel1} alt="Card image cap" />
+                            <img className="card-img-top img-fluid" src={travel1} alt="Cardcap" />
                             <div className="card-body">
                                 <h5 className="card-title">Visit new places</h5>
                                 <p className="card-text">Curabitur id lacus tempus, blandit odio tempus, viverra nibh. Sed semper enim ante, ut auctor orci gravida feugiat. Nunc eget mi nulla. Phasellus mauris augue.</p>
                             </div>
                         </div>
                         <div className="card">
-                            <img className="card-img-top img-fluid" src={travel2} alt="Card image cap" />
+                            <img className="card-img-top img-fluid" src={travel2} alt="Cardcap" />
                             <div className="card-body">
                                 <h5 className="card-title">Have new experiences</h5>
                                 <p className="card-text">Etiam pretium mattis neque in viverra. Donec metus eros, eleifend sit amet vehicula ut, rhoncus a tortor. Sed arcu quam, varius et ornare at, consequat.</p>
                             </div>
                         </div>
                         <div className="card">
-                            <img className="card-img-top img-fluid" src={travel3} alt="Card image cap" />
+                            <img className="card-img-top img-fluid" src={travel3} alt="Cardcap" />
                             <div className="card-body">
                                 <h5 className="card-title">Meet new people</h5>
                                 <p className="card-text">Vestibulum consequat tempor cursus. Integer tincidunt, lorem ut faucibus interdum, elit ex rhoncus nulla, in sollicitudin metus enim id diam. Proin lacus lacus, maximus ut.</p>
