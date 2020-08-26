@@ -6,6 +6,8 @@ header{
 }
 ul{
   list-style: none;
+  padding-inline-start: 0px!important;
+  padding-inline-end: 0px!important;
 }
 
 .fondo{
@@ -23,7 +25,7 @@ ul{
 #fondoCities{
   background-image: url("../images/cities.jpg");
   
-  height: 50vh;
+  height: 100vh;
 }
 #botonCities{
   text-decoration: none!important;
@@ -41,9 +43,17 @@ ul{
 
 
 #barra{
-  background: rgba(66, 166, 248, 0.363)!important;
+  background: rgba(20, 39, 53, 0.212)!important;
 }
 
+.destination-image {
+  display: block;
+  position: relative;
+  height: 0;
+  padding-top: 75%;
+  background-size: cover;
+  background-position: center;
+}
 nav{
   color: rgb(14, 14, 14)!important;
   font-size:1.5rem;

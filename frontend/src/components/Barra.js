@@ -26,18 +26,18 @@ class Barra extends React.Component {
                                     <img src={user} width="30" height="30" alt="user"></img>
                                 </button>
                                 <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                                    <NavLink to="/cities" className="dropdown-item" >Sign in</NavLink>
-                                    <NavLink to="/cities" className="dropdown-item" >Log out</NavLink>
-                                    <NavLink to="/cities" className="dropdown-item" >Something else here</NavLink>
+                                    <NavLink to="/home" className="dropdown-item" >Sign in</NavLink>
+                                    <NavLink to="/error" className="dropdown-item" >Log out</NavLink>
+                                    <NavLink to="/error" className="dropdown-item" >Something else here</NavLink>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div className="collapse navbar-collapse d-flex-sm justify-content-end text-center" id="navbarTogglerDemo01">
                         <div className="navbar-nav ">
-                            <NavLink to="/" className="nav-item nav-link text-dark active">Home</NavLink>
-                            <NavLink to="/cities" className="nav-item nav-link text-dark active">Cities</NavLink>
-                            <NavLink to="/cities" className="nav-item nav-link text-dark" >Vuelos</NavLink>
+                            <NavLink to="/#" className="nav-item nav-link text-dark">Home</NavLink>
+                            <NavLink to="/cities" className="nav-item nav-link text-dark">Cities</NavLink>
+                            <NavLink to="/#" className="nav-item nav-link text-dark" >Vuelos</NavLink>
                         </div>
                     </div>
                     <div>
@@ -46,9 +46,9 @@ class Barra extends React.Component {
                                 <img src={user} width="30" height="30" alt="user"></img>
                             </button>
                             <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                                <NavLink to="/" className="dropdown-item" >Sign in</NavLink>
-                                <NavLink to="/" className="dropdown-item" >Log out</NavLink>
-                                <NavLink to="/" className="dropdown-item" >Something else here</NavLink>
+                                <NavLink to="/home" className="dropdown-item" >Sign in</NavLink>
+                                <NavLink to="/error" className="dropdown-item" >Log out</NavLink>
+                                <NavLink to="/error" className="dropdown-item" >Something else here</NavLink>
                             </div>
                         </div>
                     </div>
