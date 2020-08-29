@@ -28,10 +28,24 @@ class Cities extends React.Component {
     }
 
     render() {
+        const noCities = () => {
+            if (this.state.ciudadesFiltrados.length === 0) {
+                return (
+                    <div className=" d-flex justify-content-center">
+                        <div className=" bs-example mt-5 col-8 card pl-0 pr-0">
+                            <div className="card">
+                                <p className="text-dark font-weight-bold bg-info text-center align-middle col-12" >No hay ciudades :(</p>
+                            </div>
+                        </div>
+                    </div>
+                )
+            }
+        }
         return (
             <>
-                <header id="fondoCities" >
+                <header  >
                     <Barra />
+                    <div id="fondoCities"></div>
                 </header>
 
                 <section className="container-fluid d-md-flex flex-column justify-content-center text-center pt-5 ">
@@ -40,7 +54,7 @@ class Cities extends React.Component {
                         <label >Enter the city:</label>
                         <input className="ml-2 w-25" type="text" placeholder="e.g. Paris" name="capital" id="capital" onChange={this.capturarPais}></input>
                     </div>
-
+                    {noCities()}
                     <ul className=" ml-sm-5 mr-sm-5 d-flex align-items-center row">
                         {this.state.ciudadesFiltrados.map(ciudad => {
                             return <Capitales ciudad={ciudad} />

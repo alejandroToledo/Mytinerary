@@ -1,20 +1,41 @@
-header{
-    background-image: url("../images/capadocia.jpg");
-    height: 100vh;
+#find{
+  background-image: url("../images/capadocia.jpg");
     background-size: cover;
     background-position: 20% 20%;
+  height: 90vh
 }
 ul{
   list-style: none;
   padding-inline-start: 0px!important;
   padding-inline-end: 0px!important;
 }
+#USA{
+  background-position: 0 50%;
+}
+#Italia{
+  background-position: 0 50%;
+}
+#Thailand{
+  background-position: 0 25%;
+}
+#Singapore{
+  background-position: 0 50%;
+}
+#Turkey{
+  background-position: 0 50%;
+}
+#Australia{
+  background-position: 0 45%;
+}
+#Argentina{
+  background-position: 0 50%;
+}
 
 .fondo{
-  height: 100vh;
+  height: 90vh;
 }
 #lost{
-  height: 100vh;
+  height: 90vh;
   background-image: url("../images/lost.jpg");
   background-size: cover;
 }
@@ -24,8 +45,9 @@ ul{
 }
 #fondoCities{
   background-image: url("../images/cities.jpg");
-  
-  height: 100vh;
+  height: 90vh;
+  background-size: cover;
+  background-position: 20% 20%;
 }
 #botonCities{
   text-decoration: none!important;
@@ -34,18 +56,9 @@ ul{
 #botonCities:hover{
   background-color: #ececec!important;
 }
-
-@media (min-width: 577px) {
-    nav {
-      height: 12vh;
-    }
-  }
-
-
 #barra{
-  background: rgba(20, 39, 53, 0.212)!important;
+  background: rgb(29, 171, 214)!important;
 }
-
 .destination-image {
   display: block;
   position: relative;
@@ -76,6 +89,27 @@ nav p{
 #lostContent h1{
 font-size: 3em!important;
 }
+#gradiente{
+  background: #373b44;
+  background: -webkit-linear-gradient(to right, #4286f4, #373b44);
+
+  background: linear-gradient(
+    to right,
+    hsla(217, 89%, 61%, 0.4),
+    hsla(222, 11%, 24%, 0.4)
+  );
+  height: 60vh;
+}
+
+
+/*=============MediaQueries============*/
+
+@media (min-width: 577px) {
+    nav {
+      height: 10vh;
+    }
+  }
+
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) { 
   nav{
@@ -127,6 +161,14 @@ font-size: 3em!important;
   
   }
  }
+.imgProfile{
+  width: 180px;
+height: 170px;
+border-radius: 200px;
+border: 1px solid rgba(102, 102, 102, 0.336);
+  
+}
+
 
  @media (min-width: 818px) { 
 
@@ -148,7 +190,7 @@ font-size: 3em!important;
   
   }
  }
-
+ 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
    nav{

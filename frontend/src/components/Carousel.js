@@ -15,8 +15,9 @@ class Carousel extends React.Component {
                     <h3>Top Mytineraries</h3>
                     <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
                         <div className="carousel-inner">
-                            {this.state.ciudades.map((conjunto) => (
-                                <div className="carousel-item active ">
+                            {this.state.ciudades.map((conjunto, index) => (
+
+                                <div className={`carousel-item ${index === 0 ? "active" : ""} `}>
                                     <div className="row ">
                                         {conjunto.map((ciudad) => (
                                             <div className="col-6 col-md-3">

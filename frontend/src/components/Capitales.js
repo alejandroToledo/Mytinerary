@@ -10,7 +10,7 @@ const Capitales = (props) => {
                     <div className="card-img-top img-fluid" style={{ backgroundImage: `url(${props.ciudad.image})`, backgroundSize: 'cover', width: '70vw', height: '30vh', backgroundPosition: 'center' }} >
                     </div>
                     <NavLink to={`/itineraries/${props.ciudad._id}`}>
-                        <div className="">
+                        <div className=" stretched-link">
                             <h5 className="card-title">{props.ciudad.name}</h5>
                         </div>
                     </NavLink>

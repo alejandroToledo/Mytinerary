@@ -25,10 +25,13 @@ const itineraryController = {
             .catch(error => res.json({ error }))
     },
     getItinerary: async (req, res) => {
-        const itinerario = await Citie.findOne({ _id: req.params.id })
+        const ciudad = await Citie.findOne({ _id: req.params.id })
+        const itinerario = await Itinerary.find({ cityId: req.params.id })
         console.log(itinerario)
+        console.log(ciudad)
         res.json({
-            buscado: itinerario
+            buscado: ciudad,
+            buscadoit: itinerario
         })
     }
 }

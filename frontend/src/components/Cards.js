@@ -30,24 +30,25 @@ class Cards extends React.Component {
                         <div className="card">
                             <img className="card-img-top img-fluid" src={travel1} alt="Cardcap" />
                             <div className="card-body">
-                                <h5 className="card-title">Visit new places</h5>
-                                <p className="card-text">Curabitur id lacus tempus, blandit odio tempus, viverra nibh. Sed semper enim ante, ut auctor orci gravida feugiat. Nunc eget mi nulla. Phasellus mauris augue.</p>
+                                <h5 className="card-title">Experiencias</h5>
+                                <p className="card-text">Unique activities hosted by locals</p>
                             </div>
                         </div>
                         <div className="card">
                             <img className="card-img-top img-fluid" src={travel2} alt="Cardcap" />
                             <div className="card-body">
-                                <h5 className="card-title">Have new experiences</h5>
-                                <p className="card-text">Etiam pretium mattis neque in viverra. Donec metus eros, eleifend sit amet vehicula ut, rhoncus a tortor. Sed arcu quam, varius et ornare at, consequat.</p>
+                                <h5 className="card-title">Adventures</h5>
+                                <p className="card-text">Hosted trips with lodging, meals and activities included</p>
                             </div>
                         </div>
                         <div className="card">
                             <img className="card-img-top img-fluid" src={travel3} alt="Cardcap" />
                             <div className="card-body">
-                                <h5 className="card-title">Meet new people</h5>
-                                <p className="card-text">Vestibulum consequat tempor cursus. Integer tincidunt, lorem ut faucibus interdum, elit ex rhoncus nulla, in sollicitudin metus enim id diam. Proin lacus lacus, maximus ut.</p>
+                                <h5 className="card-title">Restaurants</h5>
+                                <p className="card-text">Popular spots to eat and drink</p>
                             </div>
                         </div>
+
                     </div>
                 </section>
             </>

@@ -15,7 +15,7 @@ const ciudadesController = {
 
     postCity: (req, res) => {
         //Abro la peticion que me llega del frontend y saco la información del nuevo invitado
-        var { name, country, image } = req.body
+        var { name, country, image, imageFondo } = req.body
 
         //Validar los datos(que no falte nada o caracteres raros), se suele hacer con Midleware
 
@@ -23,7 +23,8 @@ const ciudadesController = {
         const newCitie = new Citie({
             name: name,
             country: country,
-            image: image
+            image: image,
+            imageFondo: imageFondo
         })
         newCitie.save()
             .then(citie => {
