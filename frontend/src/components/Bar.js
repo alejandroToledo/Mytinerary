@@ -3,11 +3,11 @@ import logo from "../images/logo.png"
 import user from "../images/profile-user.png"
 import { NavLink } from "react-router-dom"
 
-class Barra extends React.Component {
+class Bar extends React.Component {
     render() {
         return (
             <>
-                <nav className="navbar navbar-dark navbar-expand-sm" id="barra" >
+                <nav className="navbar navbar-dark navbar-expand-sm" id="Barra" >
 
                     <NavLink to="/" className="navbar-brand d-flex " id="logo">
                         <img src={logo} width="80" height="80" id="icono" className="d-inline-block align-top" alt="logo" />
@@ -26,9 +26,8 @@ class Barra extends React.Component {
                                     <img src={user} width="30" height="30" alt="user"></img>
                                 </button>
                                 <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                                    <NavLink to="/home" className="dropdown-item" >Sign in</NavLink>
-                                    <NavLink to="/error" className="dropdown-item" >Log out</NavLink>
-                                    <NavLink to="/error" className="dropdown-item" >Something else here</NavLink>
+                                    <NavLink to="/signin" className="dropdown-item" >Create Account</NavLink>
+                                    <NavLink to="/login" className="dropdown-item" >Log in</NavLink>
                                 </div>
                             </div>
                         </div>
@@ -37,7 +36,6 @@ class Barra extends React.Component {
                         <div className="navbar-nav ">
                             <NavLink to="/#" className="nav-item nav-link text-dark">Home</NavLink>
                             <NavLink to="/cities" className="nav-item nav-link text-dark">Cities</NavLink>
-                            <NavLink to="/#" className="nav-item nav-link text-dark" >Vuelos</NavLink>
                         </div>
                     </div>
                     <div>
@@ -46,9 +44,8 @@ class Barra extends React.Component {
                                 <img src={user} width="30" height="30" alt="user"></img>
                             </button>
                             <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                                <NavLink to="/home" className="dropdown-item" >Sign in</NavLink>
-                                <NavLink to="/error" className="dropdown-item" >Log out</NavLink>
-                                <NavLink to="/error" className="dropdown-item" >Something else here</NavLink>
+                                <NavLink to="/signin" className="dropdown-item" >Create Account</NavLink>
+                                <NavLink to="/login" className="dropdown-item" >Log in</NavLink>
                             </div>
                         </div>
                     </div>
@@ -58,4 +55,4 @@ class Barra extends React.Component {
     }
 }
 
-export default Barra
+export default Bar

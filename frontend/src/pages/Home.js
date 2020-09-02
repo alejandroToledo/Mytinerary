@@ -1,5 +1,5 @@
 import React from 'react';
-import Barra from "../components/Barra.js"
+import Bar from "../components/Bar.js"
 import Jumbo from "../components/Jumbo.js"
 import Cards from "../components/Cards.js"
 import Carousel from "../components/Carousel.js"
@@ -8,7 +8,7 @@ function Head() {
     return (
         <>
             <header >
-                <Barra />
+                <Bar />
                 <Jumbo />
 
             </header>

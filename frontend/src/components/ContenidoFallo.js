@@ -1,5 +1,5 @@
 import React from "react"
-import "../styles/headerStyles.css"
+import "../styles/Styles.css"
 import { NavLink } from "react-router-dom"
 
 class ContenidoFallo extends React.Component {

@@ -31,11 +31,30 @@ ul{
   background-position: 0 50%;
 }
 
+#inputCity{
+  border-color: rgb(25, 163, 255);
+}
+#ciudadHeader{
+  font-size: 100px;
+padding-top: 80px!important;
+}
+#paisHeader{
+  font-size: 20px;
+  padding-top: 10vw;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.colorPrice{
+  color: #373b4483;
+}
+span{
+  color: #0d0d0e;
+}
 .fondo{
   height: 90vh;
 }
 #lost{
-  height: 90vh;
+  height: 100vh;
   background-image: url("../images/lost.jpg");
   background-size: cover;
 }
@@ -56,7 +75,7 @@ ul{
 #botonCities:hover{
   background-color: #ececec!important;
 }
-#barra{
+#bar{
   background: rgb(29, 171, 214)!important;
 }
 .destination-image {
@@ -100,7 +119,6 @@ font-size: 3em!important;
   );
   height: 60vh;
 }
-
 
 /*=============MediaQueries============*/
 

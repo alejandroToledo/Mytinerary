@@ -1,15 +1,15 @@
-const Citie = require('../models/Citie')
+const Citie = require('../models/CityModel')
 
-const ciudadesController = {
+const citiesController = {
 
     getCities: async (req, res) => {
         //Pedir a BBDD la lista de ciudades
-        const lista = await Citie.find()
+        const cities = await Citie.find()
 
         //Devolverle al frontend la lista de ciudades que me dio la BBDD
         res.json({
             success: true,
-            cities: lista
+            cities
         })
     },
 
@@ -21,10 +21,10 @@ const ciudadesController = {
 
         //Grabar en la base de datos la ciudad nueva
         const newCitie = new Citie({
-            name: name,
-            country: country,
-            image: image,
-            imageFondo: imageFondo
+            name,
+            country,
+            image,
+            imageFondo
         })
         newCitie.save()
             .then(citie => {
@@ -43,4 +43,4 @@ const ciudadesController = {
 
 }
 
-module.exports = ciudadesController
+module.exports = citiesController

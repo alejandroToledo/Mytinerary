@@ -1,5 +1,5 @@
 import React from "react"
-import "../styles/headerStyles.css"
+import "../styles/Styles.css"
 
 
 class Jumbo extends React.Component {

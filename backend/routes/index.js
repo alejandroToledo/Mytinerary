@@ -1,11 +1,12 @@
 const express = require('express')
 const rutas = express.Router()
-const ciudadesController = require('../controllers/ciudadesController')
+const citiesController = require('../controllers/citiesController')
 const itineraryController = require('../controllers/itineraryController')
+const userController = require('../controllers/userController')
 
 rutas.route('/cities')
-    .get(ciudadesController.getCities)
-    .post(ciudadesController.postCity)
+    .get(citiesController.getCities)
+    .post(citiesController.postCity)
 
 rutas.route('/itineraries')
     .get(itineraryController.getItineraries)
@@ -13,5 +14,8 @@ rutas.route('/itineraries')
 
 rutas.route('/itineraries/:id')
     .get(itineraryController.getItinerary)
+
+rutas.route('/signin')
+    .post(userController.postUser)
 
 module.exports = rutas

@@ -1,7 +1,7 @@
 import React from "react"
 import Barraerror from "../components/Barraerror.js"
 import ContenidoFallo from "../components/ContenidoFallo.js"
-import "../styles/headerStyles.css"
+import "../styles/Styles.css"
 
 
 class Falla extends React.Component {

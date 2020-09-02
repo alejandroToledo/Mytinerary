@@ -1,23 +1,23 @@
-const Itinerary = require('../models/Itinerary')
-const Citie = require('../models/Citie')
+const Itinerary = require('../models/ItineraryModel')
+const Citie = require('../models/CityModel')
 
 const itineraryController = {
     getItineraries: async (req, res) => {
         const lista = await Itinerary.find()
-        res.json({ lista: lista })
+        res.json({ lista })
     },
 
     postInerary: async (req, res) => {
         var { hashtag, title, profilePic, rating, duration, price, cityId, comments } = req.body
         const newItinerary = new Itinerary({
-            hashtag: hashtag,
-            title: title,
-            profilePic: profilePic,
-            rating: rating,
-            duration: duration,
-            price: price,
-            cityId: cityId,
-            comments: comments
+            hashtag,
+            title,
+            profilePic,
+            rating,
+            duration,
+            price,
+            cityId,
+            comments
 
         })
         newItinerary.save()
