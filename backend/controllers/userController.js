@@ -90,7 +90,6 @@ const userController = {
         } else { next() }
 
     }
-
 }
 
 module.exports = userController

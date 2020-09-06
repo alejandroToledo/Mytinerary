@@ -13,8 +13,10 @@ router.route('/itineraries')
     .get(itineraryController.getItineraries)
     .post(itineraryController.postInerary)
 
+
 router.route('/itineraries/:id')
     .get(itineraryController.getItinerary)
+    .put(itineraryController.likeItinerary)
 
 router.route('/activity')
     .post(activityController.postActivity)

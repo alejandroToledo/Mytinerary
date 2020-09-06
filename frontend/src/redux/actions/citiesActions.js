@@ -11,11 +11,11 @@ const citiesActions = {
             })
         }
     },
-    filtrarCiudades: (filtro) => {
+    filterCities: (filter) => {
         return async (dispatch, getState) => {
             dispatch({
                 type: 'FILTERCITIES',
-                payload: filtro
+                payload: filter
             })
         }
     }

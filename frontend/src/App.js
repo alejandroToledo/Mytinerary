@@ -1,6 +1,6 @@
 import React from 'react';
 import Home from "./pages/Home.js"
-import Falla from "./pages/Falla.js"
+import Error404 from "./pages/Error404.js"
 import Cities from "./pages/Cities.js"
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 import Itineraries from './pages/Itineraries.js';
@@ -17,7 +17,7 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route path="/cities" component={Cities} />
           <Route path="/itineraries/:id" component={Itineraries} />
-          <Route path="/error" component={Falla} />
+          <Route path="/error" component={Error404} />
           <Route path="/signin" component={SignIn} />
           <Route path="/login" component={LogIn} />
           <Route path="/account" component={MyAccount} />

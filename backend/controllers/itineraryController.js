@@ -30,6 +30,10 @@ const itineraryController = {
             city,
             itineraries
         })
+    },
+    likeItinerary: async (req, res) => {
+
+
     }
 }
 

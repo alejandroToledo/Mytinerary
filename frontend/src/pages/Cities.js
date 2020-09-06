@@ -1,6 +1,6 @@
 import React from 'react';
 import Bar from "../components/Bar.js"
-import Capitales from "../components/Capitales.js"
+import CitiesComponent from "../components/CitiesComponent.js"
 import { connect } from 'react-redux';
 import citiesActions from '../redux/actions/citiesActions.js';
 
@@ -11,14 +11,14 @@ class Cities extends React.Component {
         this.props.getInfo()
     }
     capturarPais = e => {
-        const valorIngresado = e.target.value.trim()
-        this.props.filtrarCiudades(valorIngresado)
+        const enteredValue = e.target.value.trim()
+        this.props.filterCities(enteredValue)
     }
 
     render() {
         console.log(this.props)
         const noCities = () => {
-            if (this.props.ciudadesFiltrados.length === 0) {
+            if (this.props.filteredCities.length === 0) {
                 return (
                     <section style={{ minHeight: '400px' }}>
                         <div className=" d-flex justify-content-center" >
@@ -47,8 +47,8 @@ class Cities extends React.Component {
                     </div>
                     {noCities()}
                     <ul className=" ml-sm-5 mr-sm-5 d-flex align-items-center row">
-                        {this.props.ciudadesFiltrados.map(ciudad => {
-                            return <Capitales ciudad={ciudad} />
+                        {this.props.filteredCities.map(city => {
+                            return <CitiesComponent city={city} />
                         })}
                     </ul>
                 </section>
@@ -60,15 +60,15 @@ class Cities extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        ciudades: state.cities.ciudades,
-        ciudadesFiltrados: state.cities.ciudadesFiltrados
+        cities: state.cities.cities,
+        filteredCities: state.cities.filteredCities
     }
 }
 
 const mapDispatchToProps =
 {
     getInfo: citiesActions.getInfo,
-    filtrarCiudades: citiesActions.filtrarCiudades
+    filterCities: citiesActions.filterCities
 }
 
 

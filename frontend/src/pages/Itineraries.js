@@ -5,19 +5,18 @@ import Itinerary from '../components/Itinerary.js';
 
 class Itineraries extends React.Component {
     state = {
-        ciudad: [],
-        itinerarios: [],
+        city: [],
+        itineraries: [],
     }
 
     async componentDidMount() {
         const idAbuscar = this.props.match.params.id
-        const respuesta = await axios.get(`http://127.0.0.1:4000/api/itineraries/${idAbuscar}`)
-        const ciudad = respuesta.data.city
-        const itinerarios = respuesta.data.itineraries
-        console.log(itinerarios)
+        const response = await axios.get(`http://127.0.0.1:4000/api/itineraries/${idAbuscar}`)
+        const city = response.data.city
+        const itineraries = response.data.itineraries
         this.setState({
-            ciudad,
-            itinerarios
+            city,
+            itineraries
         }
         )
     }
@@ -26,17 +25,17 @@ class Itineraries extends React.Component {
 
     render() {
 
-        console.log(this.state.itinerarios)
-        if (this.state.itinerarios.lenght === 0) {
+        console.log(this.state.itineraries)
+        if (this.state.itineraries.lenght === 0) {
             return (
                 <>
 
                     <header >
                         <Bar />
 
-                        <div id={`${this.state.ciudad.country}`} style={{ backgroundImage: `url(${this.state.ciudad.imageFondo})`, backgroundSize: 'cover', height: '60vh', backgroundColor: "rgba(253, 246, 246, 0.199)" }}  >
+                        <div id={`${this.state.city.country}`} style={{ backgroundImage: `url(${this.state.city.imageFondo})`, backgroundSize: 'cover', height: '60vh', backgroundColor: "rgba(253, 246, 246, 0.199)" }}  >
                             <div id="gradiente">
-                                <p id="ciudadHeader" className="text-light font-weight-bold text-center ml-5 ">{this.state.ciudad.name}</p>
+                                <p id="cityHeader" className="text-light font-weight-bold text-center ml-5 ">{this.state.city.name}</p>
                             </div>
                         </div>
 
@@ -59,15 +58,15 @@ class Itineraries extends React.Component {
                 <header >
                     <Bar />
 
-                    <div id={`${this.state.ciudad.country}`} style={{ backgroundImage: `url(${this.state.ciudad.imageFondo})`, backgroundSize: 'cover', height: '60vh', backgroundColor: "rgba(253, 246, 246, 0.199)" }}  >
+                    <div id={`${this.state.city.country}`} style={{ backgroundImage: `url(${this.state.city.imageFondo})`, backgroundSize: 'cover', height: '60vh', backgroundColor: "rgba(253, 246, 246, 0.199)" }}  >
                         <div className="gradiente">
-                            <p id="ciudadHeader" className="text-light font-weight-bold text-center ml-5 ">{this.state.ciudad.name}</p>
+                            <p id="cityHeader" className="text-light font-weight-bold text-center ml-5 ">{this.state.city.name}</p>
                         </div>
                     </div>
                 </header>
                 <section style={{ minHeight: '400px' }}>
-                    {this.state.itinerarios.map(itinerario => {
-                        return (<Itinerary itinerario={itinerario} />)
+                    {this.state.itineraries.map(itinerary => {
+                        return (<Itinerary itinerary={itinerary} />)
                     })}
                 </section >
             </>

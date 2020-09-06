@@ -2,7 +2,7 @@ import React from "react"
 import "../styles/Styles.css"
 import { NavLink } from "react-router-dom"
 
-class ContenidoFallo extends React.Component {
+class ContentFailure extends React.Component {
     render() {
         return (
             <>
@@ -17,4 +17,4 @@ class ContenidoFallo extends React.Component {
     }
 }
 
-export default ContenidoFallo
+export default ContentFailure

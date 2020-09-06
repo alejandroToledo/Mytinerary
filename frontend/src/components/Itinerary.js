@@ -11,7 +11,7 @@ class Itinerary extends React.Component {
         likes: 0
     }
     async componentDidMount() {
-        console.log(this.props.itinerario)
+        console.log(this.props.itinerary)
     }
 
     render() {
@@ -27,11 +27,11 @@ class Itinerary extends React.Component {
                     <div className=" bs-example mt-5 col-8 card pl-0 pr-0">
                         <div className=" d-flex px-4 py-2">
                             <div className="col-4">
-                                <div style={{ backgroundImage: `url(${this.props.itinerario.profilePic})`, backgroundSize: 'cover', width: '12vw', height: '26vh', borderRadius: '100px', backgroundPosition: '0 15%' }}></div>
+                                <div style={{ backgroundImage: `url(${this.props.itinerary.profilePic})`, backgroundSize: 'cover', width: '12vw', height: '26vh', borderRadius: '100px', backgroundPosition: '0 15%' }}></div>
 
                             </div>
                             <div className=" d-flex flex-column col-8">
-                                <h5 className="text-center display-4 w-100">{this.props.itinerario.title}</h5>
+                                <h5 className="text-center display-4 w-100">{this.props.itinerary.title}</h5>
                                 <div className="d-flex pl-2 ">
                                     {this.props.newPic ? <input type="checkbox" className="checkbox mr-3 like" id="checkbox" value="likeIt" onChange={like} /> : ''}
                                     <label for="checkbox" className="mr-3 like">
@@ -76,28 +76,28 @@ class Itinerary extends React.Component {
                                                 </g>
                                             </g>
                                         </svg>
-                                        {this.state.likeado ? this.props.itinerario.rating + 1 : this.props.itinerario.rating} </label>
+                                        {this.state.likeado ? this.props.itinerary.rating + 1 : this.props.itinerary.rating} </label>
                                     <p className="card-text pr-3">
                                         {
-                                            this.props.itinerario.price === 1 ? <p class='colorPrice'><span className="text-bold">$</span>$$$$</p> :
-                                                this.props.itinerario.price === 2 ? <p class='colorPrice'><span className="text-bold">$$</span>$$$</p> :
-                                                    this.props.itinerario.price === 3 ? <p class='colorPrice'><span className="text-bold">$$$</span>$$</p> :
-                                                        this.props.itinerario.price === 4 ? <p class='colorPrice'><span className="text-bold">$$$$</span>$</p> :
-                                                            this.props.itinerario.price === 5 ? <p class='colorPrice'><span className="text-bold">$$$$$</span></p> :
-                                                                this.props.itinerario.price
+                                            this.props.itinerary.price === 1 ? <p class='colorPrice'><span className="text-bold">$</span>$$$$</p> :
+                                                this.props.itinerary.price === 2 ? <p class='colorPrice'><span className="text-bold">$$</span>$$$</p> :
+                                                    this.props.itinerary.price === 3 ? <p class='colorPrice'><span className="text-bold">$$$</span>$$</p> :
+                                                        this.props.itinerary.price === 4 ? <p class='colorPrice'><span className="text-bold">$$$$</span>$</p> :
+                                                            this.props.itinerary.price === 5 ? <p class='colorPrice'><span className="text-bold">$$$$$</span></p> :
+                                                                this.props.itinerary.price
                                         }
                                     </p>
-                                    <p className="card-text pr-3 ">{this.props.itinerario.duration} hours</p>
+                                    <p className="card-text pr-3 ">{this.props.itinerary.duration} hours</p>
                                 </div>
 
-                                <div className=" d-flex ">{this.props.itinerario.hashtag.map((hashtag) => (
+                                <div className=" d-flex ">{this.props.itinerary.hashtag.map((hashtag) => (
                                     <p className="card-text pr-3">#{hashtag}</p>
                                 ))}
                                 </div>
                             </div>
                         </div>
                         <div>
-                            {this.state.viewMore && <Activities id={this.props.itinerario._id} />}
+                            {this.state.viewMore && <Activities id={this.props.itinerary._id} />}
                         </div>
 
                         {this.state.viewMore &&
