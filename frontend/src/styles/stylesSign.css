@@ -2,6 +2,10 @@
     --input-padding-x: 1.5rem;
     --input-padding-y: .75rem;
   }
+select{
+  height:50px!important;
+  margin-right: 20px!important;
+  }
   
   #fondoLogueo{
     background: #373b44;

@@ -1,9 +1,8 @@
 const mongoose = require('mongoose')
 
 const activitySchema = new mongoose.Schema({
-    name: { type: String, required: true },
-    image: { type: String, required: true },
-
+    activity: { type: Array, required: true },
+    itineraryId: { type: mongoose.Schema.ObjectId, ref: 'itinerary' }
 })
 
 const Activity = mongoose.model('activity', activitySchema)

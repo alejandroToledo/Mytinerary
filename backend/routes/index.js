@@ -1,21 +1,31 @@
 const express = require('express')
-const rutas = express.Router()
+const router = express.Router()
 const citiesController = require('../controllers/citiesController')
 const itineraryController = require('../controllers/itineraryController')
 const userController = require('../controllers/userController')
+const activityController = require('../controllers/activityController')
 
-rutas.route('/cities')
+router.route('/cities')
     .get(citiesController.getCities)
     .post(citiesController.postCity)
 
-rutas.route('/itineraries')
+router.route('/itineraries')
     .get(itineraryController.getItineraries)
     .post(itineraryController.postInerary)
 
-rutas.route('/itineraries/:id')
+router.route('/itineraries/:id')
     .get(itineraryController.getItinerary)
 
-rutas.route('/signin')
-    .post(userController.postUser)
+router.route('/activity')
+    .post(activityController.postActivity)
 
-module.exports = rutas
+router.route('/activity/:id')
+    .get(activityController.getActivities)
+
+router.route('/user')
+    .post(userController.validator, userController.postUser)
+
+router.route('/login')
+    .post(userController.validatorLogin, userController.logUser)
+
+module.exports = router

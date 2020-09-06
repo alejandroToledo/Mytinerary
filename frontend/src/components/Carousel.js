@@ -20,7 +20,7 @@ class Carousel extends React.Component {
                                 <div className={`carousel-item ${index === 0 ? "active" : ""} `}>
                                     <div className="row ">
                                         {conjunto.map((ciudad) => (
-                                            <div className="col-6 col-md-3">
+                                            <div className="col-6 col-md-3" >
                                                 <div className="thumb-wrapper">
                                                     <div className="img-box">
                                                         <img src={require(`../images/${ciudad}.jpg`)} className="img-fluid" alt="" />

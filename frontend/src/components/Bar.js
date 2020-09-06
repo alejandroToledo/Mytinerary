@@ -2,9 +2,17 @@ import React from "react"
 import logo from "../images/logo.png"
 import user from "../images/profile-user.png"
 import { NavLink } from "react-router-dom"
+import { connect } from "react-redux"
+import userActions from "../redux/actions/userActions"
+
+
 
 class Bar extends React.Component {
     render() {
+        const logOut = async e => {
+            e.preventDefault()
+            this.props.logOut()
+        }
         return (
             <>
                 <nav className="navbar navbar-dark navbar-expand-sm" id="Barra" >
@@ -23,11 +31,11 @@ class Bar extends React.Component {
                         <div>
                             <div className="dropdown d-flex justify-content-end text-center ">
                                 <button className="btn dropdown-toggle d-block d-sm-none" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <img src={user} width="30" height="30" alt="user"></img>
+                                    <img src={this.props.newPic ? this.props.newPic : user} width="30" height="30" alt="user" ></img>
                                 </button>
                                 <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                                    <NavLink to="/signin" className="dropdown-item" >Create Account</NavLink>
-                                    <NavLink to="/login" className="dropdown-item" >Log in</NavLink>
+                                    <NavLink to={`${this.props.newPic ? '/account' : 'signin'}`} className="dropdown-item" >{this.props.newPic ? 'Your Account' : 'Create Account'}</NavLink>
+                                    {this.props.newPic ? <a onClick={logOut} className="dropdown-item" >Log Out </a> : <NavLink to="/login" className="dropdown-item" >Log In </NavLink>}
                                 </div>
                             </div>
                         </div>
@@ -41,11 +49,11 @@ class Bar extends React.Component {
                     <div>
                         <div className="dropdown">
                             <button className="btn dropdown-toggle d-none d-sm-block" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img src={user} width="30" height="30" alt="user"></img>
+                                <img src={this.props.newPic ? this.props.newPic : user} width="30" height="30" alt="user"></img>
                             </button>
                             <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                                <NavLink to="/signin" className="dropdown-item" >Create Account</NavLink>
-                                <NavLink to="/login" className="dropdown-item" >Log in</NavLink>
+                                <NavLink to={`${this.props.newPic ? '/account' : 'signin'}`} className="dropdown-item" >{this.props.newPic ? 'Your Account' : 'Create Account'}</NavLink>
+                                {this.props.newPic ? <a onClick={logOut} className="dropdown-item" >Log Out </a> : <NavLink to="/login" className="dropdown-item" >Log In </NavLink>}
                             </div>
                         </div>
                     </div>
@@ -55,4 +63,16 @@ class Bar extends React.Component {
     }
 }
 
-export default Bar
+const mapStateToProps = (state) => {
+    return {
+        newUser: state.user.firstName,
+        newPic: state.user.urlPic
+    }
+}
+
+const mapDispatchToProps =
+{
+    logOut: userActions.logOut
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Bar)

@@ -1,40 +1,24 @@
 import React from 'react';
 import Bar from "../components/Bar.js"
 import Capitales from "../components/Capitales.js"
-import axios from 'axios'
 import { connect } from 'react-redux';
 import citiesActions from '../redux/actions/citiesActions.js';
 
 class Cities extends React.Component {
 
-    state = {
-        ciudades: [],
-        ciudadesFiltrados: [],
-    }
-    async componentDidMount() {
-        this.props.getInfo()
-        const response = await axios('http://localhost:4000/api/cities')
-        const lista = response.data.cities
-        this.setState({
-            ciudades: lista,
-            ciudadesFiltrados: lista,
 
-        })
+    componentDidMount() {
+        this.props.getInfo()
     }
     capturarPais = e => {
         const valorIngresado = e.target.value.trim()
-
-        const filtrado = this.state.ciudades.filter(ciudad => ciudad.name.toLowerCase().indexOf(valorIngresado.toLowerCase()) === 0)
-
-        this.setState({
-            ciudadesFiltrados: filtrado
-        })
+        this.props.filtrarCiudades(valorIngresado)
     }
 
     render() {
         console.log(this.props)
         const noCities = () => {
-            if (this.state.ciudadesFiltrados.length === 0) {
+            if (this.props.ciudadesFiltrados.length === 0) {
                 return (
                     <section style={{ minHeight: '400px' }}>
                         <div className=" d-flex justify-content-center" >
@@ -63,7 +47,7 @@ class Cities extends React.Component {
                     </div>
                     {noCities()}
                     <ul className=" ml-sm-5 mr-sm-5 d-flex align-items-center row">
-                        {this.state.ciudadesFiltrados.map(ciudad => {
+                        {this.props.ciudadesFiltrados.map(ciudad => {
                             return <Capitales ciudad={ciudad} />
                         })}
                     </ul>
@@ -83,7 +67,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps =
 {
-    getInfo: citiesActions.getInfo
+    getInfo: citiesActions.getInfo,
+    filtrarCiudades: citiesActions.filtrarCiudades
 }
 
 

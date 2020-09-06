@@ -9,7 +9,6 @@ const userSchema = new mongoose.Schema({
     lastName: { type: String },
     country: { type: String },
     favItineraries: { type: Array }
-
 })
 
 const User = mongoose.model('user', userSchema)

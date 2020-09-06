@@ -18,20 +18,17 @@ const itineraryController = {
             price,
             cityId,
             comments
-
         })
         newItinerary.save()
             .then(itinerary => res.json({ itinerary }))
             .catch(error => res.json({ error }))
     },
     getItinerary: async (req, res) => {
-        const ciudad = await Citie.findOne({ _id: req.params.id })
-        const itinerario = await Itinerary.find({ cityId: req.params.id })
-        console.log(itinerario)
-        console.log(ciudad)
+        const city = await Citie.findOne({ _id: req.params.id })
+        const itineraries = await Itinerary.find({ cityId: req.params.id })
         res.json({
-            buscado: ciudad,
-            buscadoit: itinerario
+            city,
+            itineraries
         })
     }
 }

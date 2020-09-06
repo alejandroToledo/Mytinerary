@@ -5,7 +5,8 @@ import Cities from "./pages/Cities.js"
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 import Itineraries from './pages/Itineraries.js';
 import SignIn from './pages/SignIn.js';
-import LogIn from './pages/Login.js'
+import LogIn from './pages/Login.js';
+import MyAccount from './pages/MyAccount.js'
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route path="/error" component={Falla} />
           <Route path="/signin" component={SignIn} />
           <Route path="/login" component={LogIn} />
+          <Route path="/account" component={MyAccount} />
           <Redirect to="/error" />
         </Switch>
       </BrowserRouter>
