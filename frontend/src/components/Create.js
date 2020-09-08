@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import axios from "axios"
 import { connect } from "react-redux"
 import userActions from "../redux/actions/userActions"
+import swal from "sweetalert"
 
 
 const Create = (props) => {
@@ -39,15 +40,12 @@ const Create = (props) => {
         e.preventDefault()
         if (newUser.urlPic === '' || newUser.username === '' || newUser.password === ''
             || newUser.email === '' || newUser.firstName === '' || newUser.lastName === '' || newUser.country === '') {
-            alert('carga bien')
+            swal("Fill all the fields", "You clicked the button!", "error")
         } else {
-            console.log(newUser)
-            props.createAccount(newUser)
-
+            await props.createAccount(newUser)
         }
     }
-
-
+    { props.success && props.history.push('/') }
     return (
         <>
             <div >
@@ -108,10 +106,15 @@ const Create = (props) => {
 
 }
 
-
+const mapStateToProps = (state) => {
+    return {
+        success: state.user.success,
+        newPic: state.user.urlPic,
+    }
+}
 
 const mapDispatchToProps = {
     createAccount: userActions.createAccount
 }
 
-export default connect(null, mapDispatchToProps)(Create)
+export default connect(mapStateToProps, mapDispatchToProps)(Create)

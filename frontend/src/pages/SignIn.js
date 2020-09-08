@@ -3,11 +3,13 @@ import Bar from "../components/Bar.js"
 import Create from "../components/Create.js"
 import "../styles/stylesSign.css"
 
-const SignIn = () => {
+const SignIn = (props) => {
+    console.log('props de signin')
+    console.log(props)
     return (
         <div id="fondoLogueo">
             <Bar />
-            <Create />
+            <Create {...props} />
         </div>
     )
 }

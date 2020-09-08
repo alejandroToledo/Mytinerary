@@ -12,7 +12,6 @@ class Home extends React.Component {
                 <header >
                     <Bar />
                     <Jumbo />
-
                 </header>
                 <main>
                     <Cards />

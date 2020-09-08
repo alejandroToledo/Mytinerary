@@ -1,4 +1,5 @@
 import axios from 'axios'
+import swal from 'sweetalert'
 
 const userActions = {
 
@@ -8,11 +9,13 @@ const userActions = {
             const response = await axios.post('http://localhost:4000/api/user', newUser)
             console.log(response.data)
             if (!response.data.success) {
-                alert('algo salio mal')
+                console.log('algo salio mal')
             } else {
+                console.log()
                 dispatch({
                     type: 'LOGUSER',
-                    payload: response.data.user
+                    payload: { urlPic: response.data.urlPic, username: response.data.username, success: response.data.success, token: response.data.token },
+
                 })
             }
         }
@@ -21,11 +24,11 @@ const userActions = {
         return async (dispatch, getState) => {
             const response = await axios.post('http://localhost:4000/api/login', user)
             if (!response.data.success) {
-                alert(response.data.message)
+                swal(response.data.message)
             } else {
                 dispatch({
                     type: 'LOGUSER',
-                    payload: response.data.user
+                    payload: { urlPic: response.data.urlPic, username: response.data.username, success: response.data.success, token: response.data.token },
                 })
             }
         }

@@ -40,7 +40,7 @@ class Find extends React.Component {
                             <input className="ml-2 w-25" type="text" placeholder="e.g. Paris" name="capital" id="capital" onChange={this.capturarPais}></input>
                         </div>
 
-                        <div class="row d-flex justify-content-center align-items-center">
+                        <div className="row d-flex justify-content-center align-items-center">
                             {this.state.ciudadesFiltrados.map(ciudad => {
                                 return <Capitales ciudad={ciudad} />
                             })}

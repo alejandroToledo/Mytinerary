@@ -44,6 +44,11 @@ padding-top: 80px!important;
   margin-bottom: 0;
   padding-bottom: 0;
 }
+
+.sendComments{
+  padding: 5px;
+}
+
 .colorPrice{
   color: #373b4483;
 }

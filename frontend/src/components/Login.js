@@ -1,6 +1,8 @@
 import React, { useState } from "react"
 import { connect } from "react-redux"
 import userActions from "../redux/actions/userActions"
+import swal from 'sweetalert';
+
 
 const Login = (props) => {
 
@@ -18,14 +20,20 @@ const Login = (props) => {
     const sendInfo = async e => {
         e.preventDefault()
         if (user.username === '' || user.password === '') {
-            alert('carga bien')
+            alert('completar todos los campos')
         } else {
             console.log(user)
             props.logUser(user)
+            swal("Thanks for sign up!", "Enjoy the best itineraries in our page!", "success");
+
+            setTimeout(function () { props.history.push('/') }, 3000)
+
         }
     }
+    console.log(props)
     return (
         <>
+
             <div className="container">
                 <div className="row">
                     <div className="col-sm-9 col-md-7 col-lg-5 mx-auto">

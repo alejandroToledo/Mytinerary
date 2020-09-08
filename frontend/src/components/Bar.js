@@ -31,11 +31,11 @@ class Bar extends React.Component {
                         <div>
                             <div className="dropdown d-flex justify-content-end text-center ">
                                 <button className="btn dropdown-toggle d-block d-sm-none" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <img src={this.props.newPic ? this.props.newPic : user} width="30" height="30" alt="user" ></img>
+                                    <img src={this.props.newToken ? this.props.newPic : user} width="30" height="30" alt="user" ></img>
                                 </button>
                                 <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                                    <NavLink to={`${this.props.newPic ? '/account' : 'signin'}`} className="dropdown-item" >{this.props.newPic ? 'Your Account' : 'Create Account'}</NavLink>
-                                    {this.props.newPic ? <a onClick={logOut} className="dropdown-item" >Log Out </a> : <NavLink to="/login" className="dropdown-item" >Log In </NavLink>}
+                                    <NavLink to={`${this.props.newToken ? '/account' : '/signin'}`} className="dropdown-item" >{this.props.newToken ? 'Your Account' : 'Create Account'}</NavLink>
+                                    {this.props.newToken ? <a onClick={logOut} href="#" className="dropdown-item" >Log Out </a> : <NavLink to="/login" className="dropdown-item" >Log In </NavLink>}
                                 </div>
                             </div>
                         </div>
@@ -49,11 +49,11 @@ class Bar extends React.Component {
                     <div>
                         <div className="dropdown">
                             <button className="btn dropdown-toggle d-none d-sm-block" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img src={this.props.newPic ? this.props.newPic : user} width="30" height="30" alt="user"></img>
+                                <img src={this.props.newToken ? this.props.newPic : user} width="30" height="30" alt="user"></img>
                             </button>
                             <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                                <NavLink to={`${this.props.newPic ? '/account' : 'signin'}`} className="dropdown-item" >{this.props.newPic ? 'Your Account' : 'Create Account'}</NavLink>
-                                {this.props.newPic ? <a onClick={logOut} className="dropdown-item" >Log Out </a> : <NavLink to="/login" className="dropdown-item" >Log In </NavLink>}
+                                <NavLink to={`${this.props.newToken ? '/account' : '/signin'}`} className="dropdown-item" >{this.props.newToken ? 'Your Account' : 'Create Account'}</NavLink>
+                                {this.props.newToken ? <a onClick={logOut} className="dropdown-item" >Log Out </a> : <NavLink to="/login" className="dropdown-item" >Log In </NavLink>}
                             </div>
                         </div>
                     </div>
@@ -65,8 +65,9 @@ class Bar extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        newUser: state.user.firstName,
-        newPic: state.user.urlPic
+        newUser: state.user.username,
+        newPic: state.user.urlPic,
+        newToken: state.user.token
     }
 }
 

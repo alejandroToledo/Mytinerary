@@ -15,29 +15,26 @@ class Activities extends React.Component {
     }
 
     render() {
-        console.log(this.state.activities)
         return (
             <>
                 {this.state.activities.map(Activity => {
                     return (
                         <>
                             <div className='row mb-5'>
-                                <div id="carouselExampleControls" class="carousel slide col-10 mx-auto" data-ride="carousel">
-                                    <div class="carousel-inner embed-responsive embed-responsive-21by9">
-                                        {Activity.activity.map((hola, index) =>
-
-                                            <div class={`carousel-item embed-responsive-item col-12 ${index === 0 ? "active" : ""} `} style={{ backgroundImage: `url(${hola.img})`, width: "100vw", backgroundSize: 'cover', backgroundRepeat: 'none', backgroundPosition: 'center' }}>
-
+                                <div id="carouselExampleControls" className="carousel slide col-10 mx-auto" data-ride="carousel">
+                                    <div className="carousel-inner embed-responsive embed-responsive-21by9">
+                                        {Activity.activity.map((arrays, index) =>
+                                            <div className={`carousel-item embed-responsive-item col-12 ${index === 0 ? "active" : ""} `} style={{ backgroundImage: `url(${arrays.img})`, width: "100vw", backgroundSize: 'cover', backgroundRepeat: 'none', backgroundPosition: 'center' }}>
                                             </div>
                                         )}
                                     </div>
-                                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                        <span class="sr-only">Previous</span>
+                                    <a className="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                                        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span className="sr-only">Previous</span>
                                     </a>
-                                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                        <span class="sr-only">Next</span>
+                                    <a className="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                                        <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span className="sr-only">Next</span>
                                     </a>
                                 </div>
                             </div>

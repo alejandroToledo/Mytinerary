@@ -3,11 +3,11 @@ import Bar from "../components/Bar.js"
 import Login from "../components/Login.js"
 import "../styles/stylesSign.css"
 
-const LogIn = () => {
+const LogIn = (props) => {
     return (
         <div id="fondoLogueo">
             <Bar />
-            <Login />
+            <Login {...props} />
         </div>
     )
 }

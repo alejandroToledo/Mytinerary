@@ -1,6 +1,7 @@
 const User = require('../models/UserModel')
 const Joi = require('@hapi/joi')
 const bcryptjs = require('bcryptjs')
+const jwt = require('jsonwebtoken')
 
 const userController = {
     postUser: async (req, res) => {
@@ -26,7 +27,19 @@ const userController = {
                 }
             )
             var user = await newUser.save()
-            res.json({ success: true, user })
+            jwt.sign({ ...newUser }, process.env.SECRETORKEY, {}, (error, token) => {
+                if (error) {
+                    res.json({ success: false, error })
+                } else {
+                    res.json({
+                        success: true,
+                        token,
+                        urlPic: newUser.urlPic,
+                        username: newUser.username
+                    })
+                }
+            }
+            )
         }
     },
     validator: (req, res, next) => {
@@ -67,10 +80,22 @@ const userController = {
                     message: 'The username and/or password are incorrects'
                 })
             } else {
-                res.json({
-                    success: true,
-                    user: userExists
+                jwt.sign({ ...userExists }, process.env.SECRETORKEY, {}, (error, token) => {
+                    if (error) {
+                        res.json({
+                            success: false,
+                            error: 'Hubo un error'
+                        })
+                    } else {
+                        res.json({
+                            success: true,
+                            token,
+                            urlPic: userExists.urlPic,
+                            username: userExists.username
+                        })
+                    }
                 })
+
             }
         }
     },

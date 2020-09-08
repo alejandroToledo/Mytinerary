@@ -6,13 +6,18 @@ const MyAccount = (props) => {
     return (
         <>
             <Bar />
+
+            <div className="mx-auto">
+                <img src={props.newPic} alt={props.newUsername}></img>
+                <h2>{props.newUsername}</h2>
+            </div>
         </>
     )
 }
 
 const mapStateToProps = (state) => {
     return {
-        newUser: state.user.firstName,
+        newUsername: state.user.username,
         newPic: state.user.urlPic
     }
 }

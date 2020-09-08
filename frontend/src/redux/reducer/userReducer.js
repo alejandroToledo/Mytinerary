@@ -1,26 +1,26 @@
 const initialState = {
-    firstName: ' ',
-    lastName: ' ',
+    username: ' ',
     urlPic: '',
+    token: '',
+    success: '',
 }
 
 const userReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'LOGUSER':
-
+            console.log(action)
             return {
                 ...state,
-                firstName: action.payload.firstName,
-                lastName: action.payload.lastName,
-                urlPic: action.payload.urlPic
+                username: action.payload.username,
+                urlPic: action.payload.urlPic,
+                token: action.payload.token,
+                success: action.payload.success
             }
         case 'LOGOUTUSER':
 
             return {
                 ...state,
-                firstName: ' ',
-                lastName: ' ',
-                urlPic: '',
+                ...initialState
             }
 
         default:
