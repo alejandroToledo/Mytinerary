@@ -12,6 +12,7 @@ const userController = {
             firstName,
             lastName,
             country, } = req.body
+        console.log(req.body)
 
         const passwordHass = bcryptjs.hashSync(password, 10)
         const userExists = await User.findOne({ username })
@@ -37,6 +38,7 @@ const userController = {
                         urlPic: newUser.urlPic,
                         username: newUser.username
                     })
+                    res.json({ succes: true, user })
                 }
             }
             )
@@ -91,7 +93,8 @@ const userController = {
                             success: true,
                             token,
                             urlPic: userExists.urlPic,
-                            username: userExists.username
+                            username: userExists.username,
+                            favItineraries: userExists.favItineraries
                         })
                     }
                 })

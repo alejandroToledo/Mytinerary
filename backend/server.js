@@ -18,5 +18,6 @@ servidor.use(express.json())//express interpreta lo que viene del req.body
 //Rutas
 servidor.use('/api', rutas)
 
+console.log(process.env.SECRETORKEY)
 servidor.listen(4000, () => console.log('hola'))
 

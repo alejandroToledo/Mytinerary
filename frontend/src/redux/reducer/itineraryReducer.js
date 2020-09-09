@@ -1,5 +1,4 @@
 const initialState = {
-
 }
 
 const userReducer = (state = initialState, action) => {
@@ -7,7 +6,6 @@ const userReducer = (state = initialState, action) => {
         case 'LIKE':
             return {
                 ...state,
-
             }
 
         default:

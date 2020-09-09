@@ -26,7 +26,7 @@ const Login = (props) => {
             props.logUser(user)
             swal("Thanks for sign up!", "Enjoy the best itineraries in our page!", "success");
 
-            setTimeout(function () { props.history.push('/') }, 3000)
+            setTimeout(function () { props.history.push('/') }, 2000)
 
         }
     }

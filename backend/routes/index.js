@@ -4,6 +4,7 @@ const citiesController = require('../controllers/citiesController')
 const itineraryController = require('../controllers/itineraryController')
 const userController = require('../controllers/userController')
 const activityController = require('../controllers/activityController')
+const passport = require('../config/passport')
 
 router.route('/cities')
     .get(citiesController.getCities)
@@ -11,12 +12,23 @@ router.route('/cities')
 
 router.route('/itineraries')
     .get(itineraryController.getItineraries)
-    .post(itineraryController.postInerary)
+    .post(itineraryController.postItinerary)
 
+router.route('/itineraries/like')
+    .put(passport.authenticate('jwt', { session: false }), itineraryController.likeItinerary)
+
+router.route('/itineraries/dislike')
+    .put(passport.authenticate('jwt', { session: false }), itineraryController.dislikeItinerary)
+
+router.route('/itineraries/comments')
+    .put(passport.authenticate('jwt', { session: false }), itineraryController.putCommentary)
+
+router.route('/itineraries/commentsEdit')
+    .put(itineraryController.modifyCommentary)
+    .delete(itineraryController.deleteCommentary)
 
 router.route('/itineraries/:id')
     .get(itineraryController.getItinerary)
-    .put(itineraryController.likeItinerary)
 
 router.route('/activity')
     .post(activityController.postActivity)
