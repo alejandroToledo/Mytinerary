@@ -5,7 +5,7 @@ import "../styles/stylesSign.css"
 
 const LogIn = (props) => {
     return (
-        <div id="fondoLogueo">
+        <div id="fondoLogueo" style={{ minHeight: "100vh" }}>
             <Bar />
             <Login {...props} />
         </div>

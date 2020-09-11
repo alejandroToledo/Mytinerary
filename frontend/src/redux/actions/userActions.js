@@ -10,6 +10,7 @@ const userActions = {
             console.log(response.data.favItineraries)
             if (!response.data.success) {
                 console.log('algo salio mal')
+                console.log(response.data.message)
             } else {
                 console.log()
                 dispatch({
@@ -24,7 +25,7 @@ const userActions = {
             const response = await axios.post('http://localhost:4000/api/login', user)
             console.log(response.data.favItineraries)
             if (!response.data.success) {
-                swal(response.data.message)
+                swal(response.data.error)
             } else {
                 dispatch({
                     type: 'LOGUSER',
@@ -39,7 +40,57 @@ const userActions = {
                 type: 'LOGOUTUSER'
             })
         }
-    }
+    },
+    forcedLogin: (tokenLS) => {
+        return async (dispatch, getState) => {
+            const response = await axios.get('http://localhost:4000/api/user/veriftoken', {
+                headers: {
+                    Authorization: `Bearer ${tokenLS}`
+                }
+            })
+            console.log(response.data)
+            if (response.data.success) {
+                dispatch({
+                    type: 'LOGUSER',
+                    payload: { urlPic: response.data.urlPic, username: response.data.username, success: response.data.success, token: tokenLS, favItineraries: response.data.favItineraries },
+                })
+            }
+        }
+    },
+    likeItinerary: (id, token) => {
+        return async (dispatch, getState) => {
+            console.log(id, token)
+            const response = await axios.put(`http://localhost:4000/api/itineraries/like`, { id }, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            })
+            console.log(response.data.usuario.favItineraries)
+            dispatch({
+                type: 'CARGARUSUARIO',
+                payload: response.data.usuario
+            })
+        }
+    },
+    dislikeItinerary: (id, token) => {
+        return async (dispatch, getState) => {
+            console.log(id, token)
+
+            const response = await axios.put(`http://localhost:4000/api/itineraries/dislike`, { id }, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+
+                }
+
+            })
+            console.log(response.data.usuario)
+            dispatch({
+                type: 'CARGARUSUARIO',
+                payload: response.data.usuario
+            })
+        }
+    },
 }
+
 
 export default userActions

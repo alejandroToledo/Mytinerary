@@ -1,4 +1,5 @@
 const initialState = {
+    itinerarios: []
 }
 
 const userReducer = (state = initialState, action) => {
@@ -7,7 +8,11 @@ const userReducer = (state = initialState, action) => {
             return {
                 ...state,
             }
-
+        case 'CARGARITINERARIOS':
+            return {
+                ...state,
+                itinerarios: action.payload
+            }
         default:
             return state
     }

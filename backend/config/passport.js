@@ -14,7 +14,6 @@ module.exports = passport.use(new jwtStrategy({
                 return done(null, false)
             }
             else {
-                console.log('passport ' + process.env.SECRETORKEY)
                 return done(null, user)
             }
         })

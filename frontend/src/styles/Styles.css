@@ -378,13 +378,25 @@ svg #main-circ {
   }
 }
 /*=============MediaQueries============*/
-
+.userItinerary{
+  width: '12vw'!important;
+ height: '26vh'!important
+}
 @media (min-width: 577px) {
     nav {
       height: 10vh;
     }
   }
-
+  @media (min-width: 350px) { 
+    .titulo{
+      font-size: 1.2rem!important;
+    }
+   }
+   @media (min-width: 417px) { 
+    .titulo{
+      font-size: 1.4rem!important;
+    }
+   }
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) { 
   nav{
@@ -402,6 +414,14 @@ svg #main-circ {
     margin-top: 2rem;
   
   }
+  .titulo{
+    font-size: 1.6rem!important;
+  }
+}
+@media (min-width: 650px) { 
+  .titulo{
+    font-size: 1.8rem!important;
+  }
 }
 @media (max-width: 768px){
   .card-deck {
@@ -412,7 +432,8 @@ svg #main-circ {
       margin-right: -15px;
       margin-left: -15px;
       
-  }}
+  }
+}
   @media (max-width: 768px){
     .card {
       
@@ -435,6 +456,9 @@ svg #main-circ {
     margin-bottom: 10rem;
   
   }
+  .titulo{
+    font-size: 2.2rem!important;
+  }
  }
 .imgProfile{
   width: 180px;
@@ -454,6 +478,9 @@ border: 1px solid rgba(102, 102, 102, 0.336);
     margin-bottom: 10rem;
   
   }
+  .titulo{
+    font-size: 2.2rem!important;
+  }
  }
 @media (min-width: 850px) { 
 
@@ -463,6 +490,9 @@ border: 1px solid rgba(102, 102, 102, 0.336);
     text-align: center;
     margin-bottom: 10rem;
   
+  }
+  .titulo{
+    font-size: 2.5rem!important;
   }
  }
  
@@ -478,6 +508,10 @@ border: 1px solid rgba(102, 102, 102, 0.336);
   margin-bottom: 10rem;
 
 }
+.userItinerary{
+  width: 12vw!important;
+   height: 26vh!important
+}
   }
 
 @media (min-width: 1100px) { 
@@ -487,6 +521,13 @@ border: 1px solid rgba(102, 102, 102, 0.336);
       text-align: center;
       margin-bottom: 10rem;
     
+    }
+    .titulo{
+      font-size: 3.5rem!important;
+    }
+    .userItinerary{
+      width: 12vw!important;
+       height: 26vh
     }
   }
 

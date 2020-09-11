@@ -38,7 +38,7 @@ const userController = {
                         urlPic: newUser.urlPic,
                         username: newUser.username
                     })
-                    res.json({ succes: true, user })
+                    res.json({ success: true, user })
                 }
             }
             )
@@ -47,13 +47,13 @@ const userController = {
     validator: (req, res, next) => {
         console.log("validar Datos!!")
         const schema = Joi.object({
-            urlPic: Joi.string().required().trim().min(5).max(200),
-            username: Joi.string().required().trim().alphanum().min(5).max(25),
+            urlPic: Joi.string().required().trim().min(5).max(400),
+            username: Joi.string().required().trim().min(5).max(50),
             password: Joi.string().required().trim(),
             email: Joi.string().required().trim().email(),
-            firstName: Joi.string().required().trim().min(1).max(25),
-            lastName: Joi.string().required().trim().min(1).max(25),
-            country: Joi.string().required().trim().min(5).max(25),
+            firstName: Joi.string().required().trim().min(1).max(50),
+            lastName: Joi.string().required().trim().min(1).max(50),
+            country: Joi.string().required().trim().min(5).max(50),
         })
         const validation = schema.validate(req.body, { abortEarly: false })
         if (validation.error !== undefined) {
@@ -105,7 +105,7 @@ const userController = {
     validatorLogin: (req, res, next) => {
         console.log("validar Datos login!!")
         const schema = Joi.object({
-            username: Joi.string().required().trim().alphanum().min(5).max(25),
+            username: Joi.string().required().trim().min(5).max(50),
             password: Joi.string().required().trim()
         })
         const validation = schema.validate(req.body, { abortEarly: false })
@@ -117,7 +117,18 @@ const userController = {
             })
         } else { next() }
 
-    }
+    },
+    validatorToken: (req, res) => {
+        const { username, urlPic, favItineraries } = req.user
+        console.log('estos son mis datos del req.body')
+        console.log(req.user)
+        res.json({
+            success: true,
+            urlPic,
+            username,
+            favItineraries
+        })
+    },
 }
 
 module.exports = userController

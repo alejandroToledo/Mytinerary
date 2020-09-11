@@ -10,7 +10,6 @@ img.post-image, video.post-video, .google-maps{
   height: auto;
 }
 
-
 .google-maps .map{
   height: 300px;
 }
@@ -32,7 +31,7 @@ img.post-image, video.post-video, .google-maps{
 
 .post-container .post-detail .post-comment{
   display: inline-flex;
-  margin: 10px auto;
+  margin: 5px auto;
   width: 100%;
 }
 .post-container .post-detail .post-comment img.profile-photo-sm{

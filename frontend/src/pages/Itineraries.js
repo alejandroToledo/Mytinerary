@@ -2,29 +2,28 @@ import React from 'react';
 import Bar from "../components/Bar.js"
 import axios from 'axios'
 import Itinerary from '../components/Itinerary.js';
+import { connect } from 'react-redux';
+import itineraryActions from '../redux/actions/itineraryActions.js';
 
 class Itineraries extends React.Component {
     state = {
         city: [],
-        itineraries: [],
+        itineraries: []
     }
 
     async componentDidMount() {
         const idAbuscar = this.props.match.params.id
-        const response = await axios.get(`http://127.0.0.1:4000/api/itineraries/${idAbuscar}`)
-        const city = response.data.city
-        const itineraries = response.data.itineraries
+        this.props.getItineraries(idAbuscar)
+        const city = this.props.cities.filter(ciudad => ciudad._id === idAbuscar)
         this.setState({
-            city,
-            itineraries
+            city: city[0]
         }
         )
     }
 
 
-
     render() {
-
+        console.log(this.props)
         console.log(this.state.itineraries)
         if (this.state.itineraries.lenght === 0) {
             return (
@@ -65,7 +64,7 @@ class Itineraries extends React.Component {
                     </div>
                 </header>
                 <section style={{ minHeight: '400px' }}>
-                    {this.state.itineraries.map(itinerary => {
+                    {this.props.itineraries.map(itinerary => {
                         return (<Itinerary itinerary={itinerary} />)
                     })}
                 </section >
@@ -74,5 +73,13 @@ class Itineraries extends React.Component {
     }
 
 }
-
-export default Itineraries;
+const mapStateToProps = state => {
+    return {
+        cities: state.cities.cities,
+        itineraries: state.itinerary.itinerarios
+    }
+}
+const mapDispatchToProps = {
+    getItineraries: itineraryActions.getItineraries
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Itineraries);

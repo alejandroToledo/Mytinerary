@@ -7,25 +7,50 @@ import Itineraries from './pages/Itineraries.js';
 import SignIn from './pages/SignIn.js';
 import LogIn from './pages/Login.js';
 import MyAccount from './pages/MyAccount.js'
+import { connect } from 'react-redux'
+import userActions from './redux/actions/userActions.js';
 
 
-function App() {
-  return (
-    <>
-      <BrowserRouter>
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/cities" component={Cities} />
-          <Route path="/itineraries/:id" component={Itineraries} />
-          <Route path="/error" component={Error404} />
-          <Route path="/signin" component={SignIn} />
-          <Route path="/login" component={LogIn} />
-          <Route path="/account" component={MyAccount} />
-          <Redirect to="/error" />
-        </Switch>
-      </BrowserRouter>
-    </>
-  )
+class App extends React.Component {
+  render() {
+    if (this.props.newToken) {
+      var myRoutes = (<Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/cities" component={Cities} />
+        <Route path="/itineraries/:id" component={Itineraries} />
+        <Route path="/error" component={Error404} />
+        <Route path="/account" component={MyAccount} />
+        <Redirect to="/" />
+      </Switch>)
+    } else if (localStorage.getItem('token')) {
+      this.props.forcedLogin(localStorage.getItem('token'))
+    } else {
+      var myRoutes = (< Switch >
+        <Route path="/error" component={Error404} />
+        <Route path="/signup" component={SignIn} />
+        <Route path="/login" component={LogIn} />
+        <Redirect to="/login" />
+      </Switch >
+      )
+    }
+
+    return (
+      <>
+        <BrowserRouter>
+          {myRoutes}
+        </BrowserRouter>
+      </>
+    )
+  }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    newToken: state.user.token
+  }
+}
+
+const mapDispatchToProps = {
+  forcedLogin: userActions.forcedLogin
+}
+export default connect(mapStateToProps, mapDispatchToProps)(App)

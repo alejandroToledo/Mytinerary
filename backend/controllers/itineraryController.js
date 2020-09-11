@@ -4,8 +4,8 @@ const User = require('../models/UserModel')
 
 const itineraryController = {
     getItineraries: async (req, res) => {
-        const lista = await Itinerary.find()
-        res.json({ lista })
+        const list = await Itinerary.find()
+        res.json({ list })
     },
 
     postItinerary: async (req, res) => {
@@ -43,12 +43,17 @@ const itineraryController = {
             returnNewDocument: true
         })
         const { _id } = req.user
-        const usuario = await User.findOneAndUpdate({
+        const usuarioPush = await User.findOneAndUpdate({
             _id
         }, {
             $push: { favItineraries: id }
         }, {
             returnNewDocument: true
+        })
+        const usuario = await User.findOne({ _id })
+        res.json({
+            success: true,
+            usuario
         })
     },
     dislikeItinerary: async (req, res) => {
@@ -75,29 +80,70 @@ const itineraryController = {
         }, {
             returnNewDocument: true
         })
+        const usuario = await User.findOne({ _id })
+        res.json({
+            success: true,
+            usuario
+        })
 
     },
     putCommentary: async (req, res) => {
-        const { id, commentary } = req.body
+        const { id, commentary, idComment } = req.body
         const { _id, urlPic } = req.user
         const itinerary = await Itinerary.findOneAndUpdate({
             _id: id
         }, {
-            $push: { comments: { content: commentary, user: _id, userPic: urlPic } }
+            $push: { comments: { content: commentary, user: _id, userPic: urlPic, idComment } }
 
         }, {
             returnNewDocument: true
         })
-
+        const itineraries = await Itinerary.find({ cityId: itinerary.cityId })
+        res.json({
+            success: true,
+            itineraries
+        })
         console.log('Este es el controlador para agregar un comentario')
-        console.log(itinerary)
+        console.log(itinerary.comments.length)
         console.log(req.user._id)
     },
     modifyCommentary: async (req, res) => {
-        console.log('Este es el controlador para modificar un comentario')
+        const { id, commentary, idItinerary } = req.body
+        const itinerary = await Itinerary.findOne({ _id: idItinerary })
+        itinerary.comments.map(comentario => {
+            if (comentario.idComment == id) {
+                comentario.content = commentary
+            }
+        })
+        const newComments = await Itinerary.findByIdAndUpdate({
+            _id: idItinerary
+        }, {
+            comments: itinerary.comments
+        }, {
+            returnNewDocument: true
+        })
+        const itineraries = await Itinerary.find({ cityId: itinerary.cityId })
+        res.json({
+            success: true,
+            itineraries
+        })
     },
     deleteCommentary: async (req, res) => {
-        console.log('Este es el controlador para eliminar un comentario')
+        const { id, idItinerary } = req.body
+        const itinerary = await Itinerary.findOne({ _id: idItinerary })
+        const comentarioFiltrado = itinerary.comments.filter(commentary => commentary.idComment != id)
+        const newComments = await Itinerary.findByIdAndUpdate({
+            _id: idItinerary
+        }, {
+            comments: comentarioFiltrado
+        }, {
+            returnNewDocument: true
+        })
+        const itineraries = await Itinerary.find({ cityId: itinerary.cityId })
+        res.json({
+            success: true,
+            itineraries
+        })
     },
 }
 

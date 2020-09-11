@@ -18,6 +18,11 @@ const userReducer = (state = initialState, action) => {
                 success: action.payload.success,
                 favItineraries: action.payload.favItineraries
             }
+        case 'CARGARUSUARIO':
+            return {
+                ...state,
+                favItineraries: action.payload.favItineraries
+            }
         case 'LOGOUTUSER':
             localStorage.clear()
             return {

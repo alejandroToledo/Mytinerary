@@ -5,18 +5,23 @@ import itineraryActions from '../redux/actions/itineraryActions.js';
 
 
 class Likes extends React.Component {
-
+    state = {
+        flag: false
+    }
     render() {
         const likeOrDislikeItinerary = (e) => {
             var id = e.target.id
             var check = e.target
             if (check.checked === true) {
-                console.log('Enviar action de like con id:' + id)
                 this.props.likeItinerary(id, this.props.newToken)
+                this.props.itinerary.rating = this.props.itinerary.rating + 1
             } else {
-                console.log('Enviar action de dislike con id: ' + id)
                 this.props.dislikeItinerary(id, this.props.newToken)
+                this.props.itinerary.rating = this.props.itinerary.rating - 1
             }
+            this.setState({
+                flag: !this.state.flag
+            })
         }
 
         return (

@@ -25,7 +25,9 @@ router.route('/itineraries/comments')
 
 router.route('/itineraries/commentsEdit')
     .put(itineraryController.modifyCommentary)
-    .delete(itineraryController.deleteCommentary)
+
+router.route('/itineraries/commentsDelete')
+    .put(itineraryController.deleteCommentary)
 
 router.route('/itineraries/:id')
     .get(itineraryController.getItinerary)
@@ -41,5 +43,8 @@ router.route('/user')
 
 router.route('/login')
     .post(userController.validatorLogin, userController.logUser)
+
+router.route('/user/veriftoken')
+    .get(passport.authenticate('jwt', { session: false }), userController.validatorToken)
 
 module.exports = router

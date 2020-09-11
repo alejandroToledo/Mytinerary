@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { connect } from "react-redux"
 import userActions from "../redux/actions/userActions"
 import swal from 'sweetalert';
+import { GoogleLogin } from 'react-google-login'
 
 
 const Login = (props) => {
@@ -30,6 +31,12 @@ const Login = (props) => {
 
         }
     }
+    const responseGoogle = async (respuesta) => {
+        props.logUser({
+            username: respuesta.profileObj.email,
+            password: respuesta.profileObj.googleId,
+        })
+    }
     console.log(props)
     return (
         <>
@@ -53,8 +60,14 @@ const Login = (props) => {
 
                                     <button onClick={sendInfo} className="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
                                     <hr className="my-4" />
-                                    <button className="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i className="fab fa-google mr-2"></i> Sign in with Google</button>
-                                    <button className="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i className="fab fa-facebook-f mr-2"></i> Sign in with Facebook</button>
+                                    <GoogleLogin
+                                        clientId="357002458803-nqeoikfl3g6e159jmefpisck7uotql2q.apps.googleusercontent.com"
+                                        buttonText="Login"
+                                        onSuccess={responseGoogle}
+                                        onFailure={responseGoogle}
+                                        cookiePolicy={'single_host_origin'}
+                                        className="mx-auto col-8 display-2"
+                                    />
                                 </form>
                             </div>
                         </div>

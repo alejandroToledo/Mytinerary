@@ -25,6 +25,7 @@ class Activities extends React.Component {
                                     <div className="carousel-inner embed-responsive embed-responsive-21by9">
                                         {Activity.activity.map((arrays, index) =>
                                             <div className={`carousel-item embed-responsive-item col-12 ${index === 0 ? "active" : ""} `} style={{ backgroundImage: `url(${arrays.img})`, width: "100vw", backgroundSize: 'cover', backgroundRepeat: 'none', backgroundPosition: 'center' }}>
+                                                <h2 className="col-12 mx-auto text-center align-middle">{arrays.name}</h2>
                                             </div>
                                         )}
                                     </div>
